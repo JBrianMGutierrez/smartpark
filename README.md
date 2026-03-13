@@ -1,13 +1,3 @@
-## Table of Contents
-
-- [Requirements](#requirements)  
-- [Build & Run](#build--run)  
-- [API Endpoints](#api-endpoints)  
-- [Testing](#testing)  
-- [Preloaded Data](#preloaded-data)  
-
----
-
 ## Requirements
 
 - Java 17  
@@ -29,7 +19,7 @@ mvn clean install
 mvn spring-boot:run
 
 The application will start on http://localhost:8080.
-API's are in "smartpark.postman_collection.json" root
+API are in "smartpark.postman_collection.json" root
 
 ## Preloaded Data
 
