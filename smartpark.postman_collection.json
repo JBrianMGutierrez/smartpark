@@ -1,0 +1,198 @@
+{
+  "info": {
+    "_postman_id": "f5524b03-2d83-494a-8ceb-d6d1670b9962",
+    "name": "smartpark",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53169284",
+    "_collection_link": "https://go.postman.co/collection/53169284-f5524b03-2d83-494a-8ceb-d6d1670b9962?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "create parking lot",
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"lotId\": \"LOT-6\",\n    \"location\": \"1h\",\n    \"capacity\": 1\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/parking-lot",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "parking-lot"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "register vehicle",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"licensePlate\": \"CMK-522\",\n    \"type\": \"Car\",\n    \"ownerName\": \"Brian\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/vehicle",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "vehicle"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "check in vehicle",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"lotId\": \"LOT-1\",\n    \"licensePlate\": \"ABC-123\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/vehicle/check-in",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "vehicle",
+            "check-in"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "check out vehicle",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"licensePlate\": \"CMK-511\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/vehicle/check-out",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "vehicle",
+            "check-out"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get parking lot",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"lotId\": \"LOT-1\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/parking-lot/status",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "parking-lot",
+            "status"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "get all vehicles in lot",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"lotId\": \"LOT-1\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "http://localhost:8080/api/v1/vehicle/parked",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "api",
+            "v1",
+            "vehicle",
+            "parked"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

@@ -37,7 +37,7 @@ public class ParkingLotController {
         return parkingLotService.registerParkingLot(dto);
     }
     
-    @GetMapping("/status")
+    @PostMapping("/status")
     public ParkingLotStatusDTO getParkingLotStatus(@RequestBody ParkingLotStatusRequestDTO dto) {
         return parkingLotService.getParkingLotStatus(dto.getLotId());
     }

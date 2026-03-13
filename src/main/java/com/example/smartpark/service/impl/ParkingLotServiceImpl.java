@@ -40,7 +40,6 @@ public class ParkingLotServiceImpl implements ParkingLotService {
         return parkingLotRepository.save(lot);
     }
 
-    @SuppressWarnings("null")
     @Override
     public ParkingLotStatusDTO getParkingLotStatus(String lotId) {
         ParkingLot lot = parkingLotRepository.findById(lotId).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Parking lot not found"));

@@ -2,7 +2,6 @@ package com.example.smartpark.controller;
 
 import java.util.List;
 
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,7 +43,7 @@ public class VehicleController {
         return vehicleService.checkOutVehicleToLot(dto.getLicensePlate());
     }
 
-    @GetMapping("/parked")
+    @PostMapping("/parked")
     public List<Vehicle> getVehiclesInLot(@RequestBody ParkingLotStatusRequestDTO dto) {
         return vehicleService.getVehiclesInLot(dto.getLotId());
     }

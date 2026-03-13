@@ -47,7 +47,6 @@ public class VehicleServiceImpl implements VehicleService {
         return vehicleRepository.save(vehicle);
     }
 
-    @SuppressWarnings("null") // validation check in DTO
     @Override
     public Vehicle checkInVehicleToLot(CheckInDTO dto) {
         Vehicle vehicle = vehicleRepository.findById(dto.getLicensePlate()).orElseThrow(() -> new RuntimeException("Vehicle not found."));
