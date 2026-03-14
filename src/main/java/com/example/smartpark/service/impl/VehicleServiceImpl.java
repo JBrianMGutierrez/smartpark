@@ -15,6 +15,8 @@ import com.example.smartpark.repository.ParkingLotRepository;
 import com.example.smartpark.repository.VehicleRepository;
 import com.example.smartpark.service.VehicleService;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class VehicleServiceImpl implements VehicleService {
 
@@ -27,6 +29,7 @@ public class VehicleServiceImpl implements VehicleService {
     }
     
     @Override
+    @Transactional
     public Vehicle registerVehicle(VehicleDTO dto) {
         if(vehicleRepository.existsByLicensePlate(dto.getLicensePlate())) {
             throw new RuntimeException("Vehicle with License Plate '" + dto.getLicensePlate() + "' already registered.");
@@ -48,6 +51,7 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
+    @Transactional
     public Vehicle checkInVehicleToLot(CheckInDTO dto) {
         Vehicle vehicle = vehicleRepository.findById(dto.getLicensePlate()).orElseThrow(() -> new RuntimeException("Vehicle not found."));
         if (vehicle.getParkingLot() != null) {
@@ -67,6 +71,7 @@ public class VehicleServiceImpl implements VehicleService {
     }
 
     @Override
+    @Transactional
     public Vehicle checkOutVehicleToLot(String licensePlate) {
         if(!licensePlate.isEmpty()) {
             Vehicle vehicle = vehicleRepository.findById(licensePlate).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Vehicle not found"));

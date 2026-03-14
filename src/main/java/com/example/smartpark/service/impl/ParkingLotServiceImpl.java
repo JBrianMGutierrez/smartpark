@@ -12,6 +12,8 @@ import com.example.smartpark.model.entity.ParkingLot;
 import com.example.smartpark.repository.ParkingLotRepository;
 import com.example.smartpark.service.ParkingLotService;
 
+import jakarta.transaction.Transactional;
+
 @Service
 public class ParkingLotServiceImpl implements ParkingLotService {
 
@@ -27,6 +29,7 @@ public class ParkingLotServiceImpl implements ParkingLotService {
     }
 
     @Override
+    @Transactional
     public ParkingLot registerParkingLot(ParkingLotDTO dto) {
         if(parkingLotRepository.existsByLotId(dto.getLotId())) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Parking lot with ID '" + dto.getLotId() + "' already exists.");
